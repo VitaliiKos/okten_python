@@ -41,7 +41,7 @@ def change_every_fourth(arr, step):
 
 # 2)
 def square(n):
-    if not n.isdigit() or int(n) <= 0:
+    if not isinstance(n, int) or int(n) <= 0:
         print('Wrong number')
     else:
         n = int(n)
@@ -61,7 +61,7 @@ def multiplication_table(y):
     n = 1
     while n <= y:
         for i in range(1, y + 1):
-            print(n * i, end=' ')
+            print(str(n * i).center(3), end=' ')
         n += 1
         print(end='\n')
     return 'Finish'
@@ -83,17 +83,17 @@ def menu():
             print('Wrong number!')
             print('------------------------------------------------')
         else:
-            if int(menu_number) == 1:
+            if menu_number == '1':
                 print('min value is', min_from_list(list_number))
-            elif int(menu_number) == 2:
+            elif menu_number == '2':
                 print('New arr is', change_item(list_number))
-            elif int(menu_number) == 3:
+            elif menu_number == '3':
                 print('new arr is', change_every_fourth(list_number[:], 4))
-            elif int(menu_number) == 4:
+            elif menu_number == '4':
                 square(input('Write a number:'))
-            elif int(menu_number) == 5:
+            elif menu_number == '5':
                 print(multiplication_table(10))
-            elif int(menu_number) == 6:
+            elif menu_number == '6':
                 break
             else:
                 print('------------------------------------------------')
