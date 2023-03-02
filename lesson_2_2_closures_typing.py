@@ -1,7 +1,8 @@
 from pprint import pprint
+from typing import Callable
 
 
-def notebook_2() -> tuple:
+def notebook_2() -> tuple[Callable[[dict], None], Callable[[], list[dict]]]:
     todo_list2: list[dict] = []
 
     def add_todo(todo: dict) -> None:
