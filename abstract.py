@@ -53,11 +53,15 @@ class Main:
 
     @classmethod
     def show_all_magazines(cls):
-        [magazine.print() for magazine in cls.printable_list if isinstance(magazine, Magazine)]
+        for magazine in cls.printable_list:
+            if isinstance(magazine, Magazine):
+                magazine.print()
 
     @classmethod
     def show_all_books(cls) -> None:
-        [book.print() for book in cls.printable_list if isinstance(book, Book)]
+        for book in cls.printable_list:
+            if isinstance(book, Magazine):
+                book.print()
 
 
 Main.add(Magazine('Magazine1'))
