@@ -46,14 +46,14 @@ arr_data = [Gen.get_item(item) for item in data]
 res = []
 
 while len(res) < 5:
-    team = arr_data.pop(0)
+    current_item = arr_data.pop(0)
     try:
-        next_team = next(team)
-        if next_team not in res:
-            res.append(next_team)
-            arr_data.append(team)
+        next_item = next(current_item)
+        if next_item not in res:
+            res.append(next_item)
+            arr_data.append(current_item)
         else:
-            arr_data.insert(0, team)
+            arr_data.insert(0, current_item)
     except StopIteration:
         pass
 print(res)
