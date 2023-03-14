@@ -34,7 +34,6 @@ def add_purchase(items):
 def search_purchase_items(items):
     search_params = input("Enter your search query: ")
     result = [item for item in items if search_params.lower() in json.dumps(item).lower()]
-    print(result)
     if result:
         display_all_items(result)
     else:
@@ -57,7 +56,7 @@ def show_most_expensive_item(items):
         print("The purchases not found.")
         return
     most_expensive_item = max(items, key=lambda x: x["price"])
-    print(f"{'ID':5} {'Name':20} {'Price'}")
+    print(f"{'ID':5} {'Name':20} {'Price':<10}")
     print(f'{most_expensive_item["id"]:<5} {most_expensive_item["name"]:<20} {most_expensive_item["price"]:<10}')
 
 
