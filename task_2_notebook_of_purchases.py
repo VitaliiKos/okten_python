@@ -41,8 +41,8 @@ def search_purchase_items(items):
 
 
 def delete_purchase(items):
-    search_params = input("Enter the id or name or price of the purchase you want to delete: ")
-    result = [item for item in items if search_params.lower() in json.dumps(item).lower()]
+    search_params = input("Enter the id of the purchase you want to delete: ")
+    result = [item for item in items if search_params == str(item['id'])]
     if result:
         items.remove(result[0])
         save_file(items)
