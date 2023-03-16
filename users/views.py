@@ -13,13 +13,17 @@ class FileAction:
         try:
             with open("users.json", "r") as file:
                 return json.load(file)
-        except FileNotFoundError:
+        except (Exception,):
             return []
 
     @staticmethod
-    def save_file(users: List[Dict[str, Any]]) -> None:
-        with open("users.json", "w") as file:
-            json.dump(users, file)
+    def save_file(users: List[Dict[str, Any]]) -> Response:
+        try:
+            with open("users.json", "w") as file:
+                json.dump(users, file)
+        except Exception as error:
+            print(error)
+            return Response('Error', status.HTTP_304_NOT_MODIFIED)
 
 
 class UsersAPIView(APIView):
